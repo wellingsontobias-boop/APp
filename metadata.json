@@ -1,0 +1,5 @@
+{
+  "name": "Backup Prisma Points - App",
+  "description": "A points and rewards management application focused on engagement and gamification for employees. Users can log actions to earn points and redeem them for prizes, with an admin panel for management and approvals.",
+  "requestFramePermissions": []
+}
