@@ -1,31 +1,26 @@
 // FIX: Import React to use React.FC type.
 import { Action, Prize, User, Role, LoggedAction, Redemption, Status, AppNotification, AdminSettings, Medal, Mission, MissionType, MissionGoalType, UserMissionProgress, SpecialEvent } from './types';
 
+export const APP_VERSION = '2.4.0';
+
 export const USERS: User[] = [
-  { id: 1, name: 'Ana Silva', username: 'analista', password: '123', role: Role.ANALYST, points: 3250 },
-  { id: 2, name: 'Carlos Lima', username: 'admin', password: '123', role: Role.ADMIN, points: 5000 },
-  { id: 3, name: 'Beatriz Costa', username: 'bia', password: '123', role: Role.ANALYST, points: 1800 },
-  { id: 4, name: 'Daniel Alves', username: 'dani', password: '123', role: Role.ANALYST, points: 4100 },
-  { id: 5, name: 'João Delgado', username: 'joao.d', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 6, name: 'Larissa Aline', username: 'larissa.a', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 7, name: 'Julia Reis', username: 'julia.r', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 8, name: 'Sara Dias Santos', username: 'sara.s', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 9, name: 'Davi Brandão', username: 'davi.b', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 10, name: 'Aryele Amanda', username: 'aryele.a', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 11, name: 'Elisa de Oliveira Afonso', username: 'elisa.o', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 12, name: 'Jones Dalton', username: 'jones.d', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 13, name: 'Gabriel Ramos', username: 'gabriel.r', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 14, name: 'Aline de Oliveira Nunes', username: 'aline.o', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 15, name: 'Micaela Santos', username: 'micaela.s', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 16, name: 'Barbara Cynthia', username: 'barbara.c', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 17, name: 'Débora de Andrade', username: 'debora.a', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 18, name: 'Katia Noronha', username: 'katia.n', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 19, name: 'Karina Santos', username: 'karina.s', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 20, name: 'Warley Junio', username: 'warley.j', password: '123', role: Role.ANALYST, points: 0 },
-  { id: 21, name: 'Lucas Brendo', username: 'lucas.b', password: '123', role: Role.ANALYST, points: 0 },
+  { id: 2, name: 'Administrador', username: 'admin', password: '123', role: Role.ADMIN, points: 5000 },
+  { id: 31, name: 'Alex Almeida', username: 'alex.a', password: '123', role: Role.ANALYST, points: 2950, wishlist: [10, 22] },
+  { id: 32, name: 'Ana Silva', username: 'ana.s', password: '123', role: Role.ANALYST, points: 2850, wishlist: [15, 27] },
+  { id: 33, name: 'Beatriz Costa', username: 'beatriz.c', password: '123', role: Role.ANALYST, points: 2950, wishlist: [11] },
+  { id: 34, name: 'Caio Souza', username: 'caio.s', password: '123', role: Role.ANALYST, points: 2950, wishlist: [22, 28] },
+  { id: 35, name: 'Daniel Oliveira', username: 'daniel.o', password: '123', role: Role.ANALYST, points: 2950, wishlist: [23] },
+  { id: 36, name: 'Felipe Santos', username: 'felipe.s', password: '123', role: Role.ANALYST, points: 2950, wishlist: [26] },
+  { id: 37, name: 'Guilherme Lima', username: 'guilherme.l', password: '123', role: Role.ANALYST, points: 2950, wishlist: [24] },
+  { id: 38, name: 'Junior Andrade', username: 'junior.a', password: '123', role: Role.ANALYST, points: 2950, wishlist: [22] },
+  { id: 39, name: 'Lucas Rocha', username: 'lucas.r', password: '123', role: Role.ANALYST, points: 2950, wishlist: [30] },
+  { id: 40, name: 'Matheus Ferreira', username: 'matheus.f', password: '123', role: Role.ANALYST, points: 2950, wishlist: [29] },
+  { id: 41, name: 'Tiago Souza', username: 'tiago.s', password: '123', role: Role.ANALYST, points: 2950, wishlist: [28] },
+  { id: 42, name: 'Wellingson Silveira', username: 'wellingson.s', password: '123', role: Role.ANALYST, points: 2950, wishlist: [27] },
 ];
 
 export const ACTIONS: Action[] = [
+    { id: 0, category: 'Sistema', description: 'Importação de Histórico', points: 0, validator: 'Sistema' },
     { id: 1, category: 'Excelência no Atendimento', description: 'Comentário positivo de cliente referente a atendimento', points: 120, validator: 'Liderança' },
     { id: 2, category: 'Excelência no Atendimento', description: 'Obter 100% de nota de Qualidade interna', points: 100, validator: 'Qualidade' },
     { id: 3, category: 'Colaboração e Desenvolvimento', description: 'Mentoria e desenvolvimento de colegas', points: 100, validator: 'Liderança' },
@@ -64,6 +59,7 @@ export const ACTIONS: Action[] = [
 ];
 
 export const PRIZES: Prize[] = [
+    { id: 0, category: 'Sistema', description: 'Consolidação de Histórico (Débito)', cost: 0, benefit: 'Saldo migrado do sistema anterior', icon: 'ScissorsIcon' },
     { id: 1, category: 'Até 550', description: 'Pegar points com outra pessoa', cost: 300, benefit: 'Flexibilidade na troca de HO/presencial', icon: 'UsersIcon' },
     { id: 2, category: 'Até 550', description: 'Receber uma mentoria técnica', cost: 350, benefit: 'Troca presencial e HO', icon: 'BookOpenIcon' },
     { id: 3, category: 'Até 550', description: 'Entrar 30 min mais tarde uma vez', cost: 350, benefit: 'Flexibilidade no horário', icon: 'CalendarIcon' },
@@ -97,18 +93,147 @@ export const PRIZES: Prize[] = [
 ];
 
 export const LOGGED_ACTIONS: LoggedAction[] = [
-    { id: 1, userId: 1, actionId: 1, month: '2024-06', notes: 'Cliente elogiou a rapidez.', status: Status.VALIDATED, validationDate: '2024-07-05' },
-    { id: 2, userId: 1, actionId: 3, month: '2024-07', notes: 'Ajudei o novo colega com o sistema X.', status: Status.PENDING_VALIDATION },
-    { id: 3, userId: 2, actionId: 11, month: '2024-07', notes: 'Identifiquei um bug no fluxo de atendimento.', status: Status.VALIDATED, validationDate: '2024-07-10' },
-    { id: 4, userId: 3, actionId: 2, month: '2024-07', notes: 'Monitoria de qualidade.', status: Status.VALIDATED, validationDate: '2024-07-11' },
-    { id: 5, userId: 4, actionId: 1, month: '2024-07', notes: 'Cliente satisfeito.', status: Status.VALIDATED, validationDate: '2024-07-12' },
-    { id: 6, userId: 4, actionId: 1, month: '2024-06', notes: 'Outro cliente satisfeito.', status: Status.VALIDATED, validationDate: '2024-07-12' },
+    // Alex Almeida (31)
+    { id: 2001, userId: 31, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2002, userId: 31, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2003, userId: 31, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2004, userId: 31, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2005, userId: 31, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2006, userId: 31, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2007, userId: 31, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2008, userId: 31, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2009, userId: 31, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Ana Silva (32)
+    { id: 2010, userId: 32, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2011, userId: 32, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2012, userId: 32, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2013, userId: 32, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2014, userId: 32, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2015, userId: 32, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2016, userId: 32, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2017, userId: 32, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2018, userId: 32, actionId: 0, points: 100, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Beatriz Costa (33)
+    { id: 2019, userId: 33, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2020, userId: 33, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2021, userId: 33, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2022, userId: 33, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2023, userId: 33, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2024, userId: 33, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2025, userId: 33, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2026, userId: 33, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2027, userId: 33, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Caio Souza (34)
+    { id: 2028, userId: 34, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2029, userId: 34, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2030, userId: 34, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2031, userId: 34, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2032, userId: 34, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2033, userId: 34, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2034, userId: 34, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2035, userId: 34, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2036, userId: 34, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Daniel Oliveira (35)
+    { id: 2037, userId: 35, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2038, userId: 35, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2039, userId: 35, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2040, userId: 35, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2041, userId: 35, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2042, userId: 35, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2043, userId: 35, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2044, userId: 35, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2045, userId: 35, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Felipe Santos (36)
+    { id: 2046, userId: 36, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2047, userId: 36, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2048, userId: 36, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2049, userId: 36, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2050, userId: 36, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2051, userId: 36, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2052, userId: 36, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2053, userId: 36, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2054, userId: 36, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Guilherme Lima (37)
+    { id: 2055, userId: 37, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2056, userId: 37, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2057, userId: 37, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2058, userId: 37, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2059, userId: 37, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2060, userId: 37, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2061, userId: 37, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2062, userId: 37, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2063, userId: 37, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Junior Andrade (38)
+    { id: 2064, userId: 38, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2065, userId: 38, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2066, userId: 38, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2067, userId: 38, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2068, userId: 38, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2069, userId: 38, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2070, userId: 38, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2071, userId: 38, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2072, userId: 38, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Lucas Rocha (39)
+    { id: 2073, userId: 39, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2074, userId: 39, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2075, userId: 39, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2076, userId: 39, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2077, userId: 39, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2078, userId: 39, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2079, userId: 39, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2080, userId: 39, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2081, userId: 39, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Matheus Ferreira (40)
+    { id: 2082, userId: 40, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2083, userId: 40, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2084, userId: 40, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2085, userId: 40, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2086, userId: 40, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2087, userId: 40, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2088, userId: 40, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2089, userId: 40, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2090, userId: 40, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Tiago Souza (41)
+    { id: 2091, userId: 41, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2092, userId: 41, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2093, userId: 41, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2094, userId: 41, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2095, userId: 41, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2096, userId: 41, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2097, userId: 41, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2098, userId: 41, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2099, userId: 41, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Wellingson Silveira (42)
+    { id: 2100, userId: 42, actionId: 0, points: 100, month: '2025-08', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2101, userId: 42, actionId: 0, points: 450, month: '2025-09', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2102, userId: 42, actionId: 0, points: 400, month: '2025-10', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2103, userId: 42, actionId: 0, points: 250, month: '2025-11', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2104, userId: 42, actionId: 0, points: 500, month: '2025-12', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2105, userId: 42, actionId: 0, points: 300, month: '2026-01', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2106, userId: 42, actionId: 0, points: 400, month: '2026-02', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2107, userId: 42, actionId: 0, points: 350, month: '2026-03', notes: 'Histórico', status: Status.VALIDATED },
+    { id: 2108, userId: 42, actionId: 0, points: 200, month: '2026-04', notes: 'Histórico', status: Status.VALIDATED },
+
+    // Current Pending Actions for Dashboard
+    { id: 3001, userId: 31, actionId: 1, requestDate: '2026-05-10', month: '2026-05', status: Status.PENDING_APPROVAL },
+    { id: 3002, userId: 32, actionId: 2, requestDate: '2026-05-11', month: '2026-05', status: Status.PENDING_APPROVAL },
 ];
 
 export const REDEMPTIONS: Redemption[] = [
+    { id: 3001, userId: 31, prizeId: 27, requestDate: '2026-05-01', status: Status.PENDING_APPROVAL },
+    { id: 3002, userId: 32, prizeId: 15, requestDate: '2026-05-02', status: Status.PENDING_APPROVAL },
     { id: 1, userId: 1, prizeId: 9, requestDate: '2024-06-15', status: Status.APPROVED, approvalDate: '2024-06-16' },
-    { id: 2, userId: 1, prizeId: 10, requestDate: '2024-07-10', status: Status.PENDING_APPROVAL },
-    { id: 3, userId: 4, prizeId: 27, requestDate: '2024-07-01', status: Status.APPROVED, approvalDate: '2024-07-02' },
 ];
 
 export const NOTIFICATIONS: AppNotification[] = [

@@ -26,6 +26,10 @@ export interface User {
   password?: string;
   role: Role;
   points: number;
+  onboarded?: boolean;
+  theme?: 'light' | 'dark';
+  wishlist?: number[]; // Prize IDs
+  lastActionDate?: string; // YYYY-MM-DD
 }
 
 export interface Action {
@@ -44,16 +48,20 @@ export interface Prize {
   benefit: string;
   icon?: string;
   imageUrl?: string;
+  rarity?: 'Normal' | 'Limitada' | 'Promocional';
 }
 
 export interface LoggedAction {
   id: number;
   userId: number;
   actionId: number;
+  points?: number; // Optional override for historical imports
   month: string; 
   notes: string;
+  justification?: string; // Admin justification when logging for others
   status: Status;
   validationDate?: string;
+  rejectionReason?: string;
 }
 
 export interface Redemption {
@@ -63,6 +71,8 @@ export interface Redemption {
   requestDate: string;
   status: Status;
   approvalDate?: string;
+  refusalReason?: string;
+  points?: number; // Optional override for historical imports
 }
 
 export interface HistoryEntry {
@@ -74,11 +84,20 @@ export interface HistoryEntry {
 
 export interface AppNotification {
   id: number;
-  senderId: number; // Admin User ID
+  senderId: number; // Admin User ID or Peer ID
   recipientId: number | 'all'; // Specific User ID or 'all'
   message: string;
   timestamp: string; // ISO Date String
   read: boolean;
+  type?: 'SYSTEM' | 'PEER_RECOGNITION' | 'MEDAL';
+}
+
+export interface PeerRecognition {
+  id: number;
+  senderId: number;
+  recipientId: number;
+  message: string;
+  timestamp: string;
 }
 
 export interface AdminSettings {
